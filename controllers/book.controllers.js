@@ -15,6 +15,8 @@ const addBook = async (req, res) => {
 
 const getBooks = async (req, res) => {
   try {
+    let books = await Book.find({});
+    return res.status(200).send(books);
   } catch (err) {
     return res.status(400).send({ error: err.message });
   }
@@ -22,6 +24,9 @@ const getBooks = async (req, res) => {
 
 const getBook = async (req, res) => {
   try {
+    let bookID = req.params.bookID;
+    let book = await Book.findById(bookID);
+    return res.status(200).send(book);
   } catch (err) {
     return res.status(400).send({ error: err.message });
   }
