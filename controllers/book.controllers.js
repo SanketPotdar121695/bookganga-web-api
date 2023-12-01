@@ -34,6 +34,15 @@ const getBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
   try {
+    let bookID = req.params.bookID;
+    let book = await Book.findByIdAndUpdate(bookID);
+
+    if (book)
+      return res.status(200).send({
+        message: `The book with ID: ${req.params.bookID} has been updated successfully!`
+      });
+
+    return res.status(400).send({ error: 'Invalid book ID! Could find book.' });
   } catch (err) {
     return res.status(400).send({ error: err.message });
   }
