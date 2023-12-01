@@ -13,7 +13,7 @@ const bookRouter = Router();
 bookRouter.get('/', getBooks);
 bookRouter.post('/add', addBook);
 bookRouter.get('/:bookID?', getBook);
-bookRouter.patch('/update/:postID', updateBook);
+bookRouter.put('/update/:postID', updateBook);
 bookRouter.delete('/delete/:postID', deleteBook);
 
 module.exports = { bookRouter };
