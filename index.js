@@ -2,6 +2,7 @@
 const cors = require('cors');
 const express = require('express');
 const { PORT, connection } = require('./config/db');
+const { bookRouter } = require('./routes/book.routes');
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.status(200).send('<h1>Welcome to the BookGanga Web API !!!</h1>');
 });
+
+app.use('/books', bookRouter);
 
 // Listening to the server
 app.listen(PORT, connection);
