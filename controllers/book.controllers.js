@@ -50,6 +50,17 @@ const updateBook = async (req, res) => {
 
 const deleteBook = async (req, res) => {
   try {
+    let bookID = req.params.bookID;
+    let book = await Book.findByIdAndDelete(bookID);
+
+    if (book)
+      return res.status(200).send({
+        message: `The book with ID: ${req.params.bookID} has been deleted successfully!`
+      });
+
+    return res
+      .status(400)
+      .send({ error: 'Invalid book ID! Cannot find book.' });
   } catch (err) {
     return res.status(400).send({ error: err.message });
   }
