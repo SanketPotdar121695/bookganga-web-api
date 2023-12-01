@@ -5,7 +5,7 @@ const {
   getBooks,
   updateBook,
   deleteBook
-} = require('../controllers/book.controller');
+} = require('../controllers/book.controllers');
 
 const bookRouter = Router();
 
@@ -13,7 +13,7 @@ const bookRouter = Router();
 bookRouter.get('/', getBooks);
 bookRouter.post('/add', addBook);
 bookRouter.get('/:bookID?', getBook);
-bookRouter.put('/update/:postID', updateBook);
-bookRouter.delete('/delete/:postID', deleteBook);
+bookRouter.put('/update/:bookID', updateBook);
+bookRouter.delete('/delete/:bookID', deleteBook);
 
 module.exports = { bookRouter };

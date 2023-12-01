@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+// Book Schema
 const bookSchema = new Schema(
   {
     title: { type: String, required: true },
@@ -14,6 +15,7 @@ const bookSchema = new Schema(
   }
 );
 
+// Bokk model serving as a collection
 const BookModel = model('book', bookSchema);
 
 module.exports = { BookModel };

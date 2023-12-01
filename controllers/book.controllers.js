@@ -15,7 +15,8 @@ const addBook = async (req, res) => {
 
 const getBooks = async (req, res) => {
   try {
-    let books = await Book.find({});
+    let books = (await Book.find({})) || [];
+
     return res.status(200).send(books);
   } catch (err) {
     return res.status(400).send({ error: err.message });
@@ -25,7 +26,8 @@ const getBooks = async (req, res) => {
 const getBook = async (req, res) => {
   try {
     let bookID = req.params.bookID;
-    let book = await Book.findById(bookID);
+    let book = (await Book.findById(bookID)) || {};
+
     return res.status(200).send(book);
   } catch (err) {
     return res.status(400).send({ error: err.message });
@@ -35,14 +37,16 @@ const getBook = async (req, res) => {
 const updateBook = async (req, res) => {
   try {
     let bookID = req.params.bookID;
-    let book = await Book.findByIdAndUpdate(bookID);
+    let book = await Book.findOneAndUpdate({ bookID });
 
     if (book)
       return res.status(200).send({
         message: `The book with ID: ${req.params.bookID} has been updated successfully!`
       });
 
-    return res.status(400).send({ error: 'Invalid book ID! Could find book.' });
+    return res.status(400).send({
+      error: `Invalid book ID! Cannot find any book with the ID: ${bookID}.`
+    });
   } catch (err) {
     return res.status(400).send({ error: err.message });
   }
@@ -58,9 +62,9 @@ const deleteBook = async (req, res) => {
         message: `The book with ID: ${req.params.bookID} has been deleted successfully!`
       });
 
-    return res
-      .status(400)
-      .send({ error: 'Invalid book ID! Cannot find book.' });
+    return res.status(400).send({
+      error: `Invalid book ID! Cannot find any book with the ID: ${bookID}.`
+    });
   } catch (err) {
     return res.status(400).send({ error: err.message });
   }
