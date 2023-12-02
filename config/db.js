@@ -2,6 +2,7 @@ require('dotenv').config();
 const { connect } = require('mongoose');
 
 const PORT = process.env.PORT;
+const welcomeMessage = process.env.welcomeNote;
 
 const connection = async () => {
   try {
@@ -13,4 +14,4 @@ const connection = async () => {
   console.log(`App is running on port ${PORT}`);
 };
 
-module.exports = { PORT, connection };
+module.exports = { PORT, connection, welcomeMessage };
