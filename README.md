@@ -90,7 +90,8 @@ http://localhost:<PORT>/books/delete/<bookID>
 
 ## Demo
 
-Check out the demo <a href="https://bookganga-web-api.onrender.com" target="_blank">here</a>
+Check out the demo <a href="https://bookganga-web-api.onrender.com" target="_blank">here</a><br/>
+You can watch the demo video <a href="https://drive.google.com/file/d/1SZXvY40YkifdsBc_w0o356Ry3h8Cxzfa/view?usp=sharing" target="_blank">here</a> for better understanding.
 
 ## Disclaimer
 
