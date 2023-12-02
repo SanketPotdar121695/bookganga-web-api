@@ -37,7 +37,12 @@ const getBook = async (req, res) => {
 const updateBook = async (req, res) => {
   try {
     let bookID = req.params.bookID;
-    let book = await Book.findOneAndUpdate({ bookID });
+    let update = req.body;
+    let book = await Book.findOneAndUpdate(
+      { _id: '656acfc332712202ff800ef3' },
+      update,
+      { new: true }
+    );
 
     if (book)
       return res.status(200).send({
