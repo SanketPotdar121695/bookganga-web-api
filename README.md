@@ -91,7 +91,6 @@ http://localhost:<PORT>/books/delete/<bookID>
 ## Demo
 
 Check out the demo <a href="https://bookganga-web-api.onrender.com" target="_blank">here</a><br/>
-You can watch the demo video <a href="https://drive.google.com/file/d/1SZXvY40YkifdsBc_w0o356Ry3h8Cxzfa/view?usp=sharing" target="_blank">here</a> for better understanding.<br/>
 
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/31551202-b124b760-c3fb-4d8a-bd31-b02ca260db47?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D31551202-b124b760-c3fb-4d8a-bd31-b02ca260db47%26entityType%3Dcollection%26workspaceId%3D83839bfe-f113-45bf-9bb3-630da22d79d8)
 
